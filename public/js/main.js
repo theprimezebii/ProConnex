@@ -123,3 +123,21 @@ function openJoinModal() {
     joinModal.classList.add("active");
   }
 }
+function switchModalTab(tab) {
+  const signInForm = document.getElementById('signInForm');
+  const signUpForm = document.getElementById('signUpForm');
+  const signInTab = document.getElementById('signInTab');
+  const signUpTab = document.getElementById('signUpTab');
+
+  if (tab === 'signin') {
+    signInForm.style.display = 'block';
+    signUpForm.style.display = 'none';
+    signInTab.classList.add('active');
+    signUpTab.classList.remove('active');
+  } else {
+    signInForm.style.display = 'none';
+    signUpForm.style.display = 'block';
+    signInTab.classList.remove('active');
+    signUpTab.classList.add('active');
+  }
+}
