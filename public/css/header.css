@@ -1,0 +1,153 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #0a2c53;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position:relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* display: none; */
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -270px; /* Hidden off-screen */
+  width: 260px;
+  height: 100%;
+  background-color: #0a2c53;
+  color: white;
+  z-index: 999;
+  padding-top: 70px;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a,
+.sidebar ul li button {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Dropdown menu inside sidebar */
+.dropdown-toggle {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.dropdown-menu {
+  background-color: #0f3a6a;
+  display: none;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+.dropdown-toggle.active + .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu li {
+  padding: 10px 0;
+}
+
+.dropdown-menu a {
+  font-size: 0.95rem;
+}
+
+.chevron-icon {
+  margin-left: auto;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+.disabled-link {
+  pointer-events: none;   /* disables click */
+  opacity: 0.5;           /* makes it look inactive */
+  cursor: not-allowed;
+  text-decoration: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .sidebar {
+    width: 260px;
+  }
+}

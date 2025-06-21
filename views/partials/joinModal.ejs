@@ -1,0 +1,57 @@
+<!-- views/partials/joinModal.ejs -->
+ <link rel="stylesheet" href="/css/joinModal.css">
+<div class="modal-overlay" id="joinModal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeJoinModal()">&times;</span>
+
+    <div class="modal-tabs">
+      <button id="signInTab" class="active" onclick="switchModalTab('signin')">Sign In</button>
+      <button id="signUpTab" onclick="switchModalTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- Sign In Form -->
+    <form id="signInForm" action="/signin" method="POST">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+
+      <div class="form-options">
+        <label><input type="checkbox" name="remember" /> Remember me</label>
+        <a href="/forgot-password" class="forgot-link">Forgot Password?</a>
+      </div>
+
+      <div style="text-align: center;">
+        <button type="submit" class="btn">Sign In</button>
+      </div>
+
+      <div class="divider">or</div>
+
+      <a href="/auth/google" class="btn btn-google"><i data-lucide="globe"></i> Sign in with Google</a>
+      <a href="/auth/github" class="btn btn-github"><i data-lucide="github"></i> Sign in with GitHub</a>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signUpForm" action="/signup" method="POST" style="display: none;">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" id="password" name="password" placeholder="Password" required />
+  <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+
+  <!-- Password Rules Live Checklist -->
+  <ul class="password-rules" id="passwordRules">
+    <li id="rule-length">❌ At least 8 characters</li>
+    <li id="rule-number">❌ Includes a number</li>
+    <li id="rule-uppercase">❌ Includes an uppercase letter</li>
+    <li id="rule-special">❌ Includes a special character</li>
+  </ul>
+
+  <div style="text-align: center;">
+    <button type="submit" class="btn">Sign Up</button>
+  </div>
+
+  <div class="divider">or</div>
+
+  <a href="/auth/google" class="btn btn-google"><i data-lucide="globe"></i> Sign up with Google</a>
+  <a href="/auth/github" class="btn btn-github"><i data-lucide="github"></i> Sign up with GitHub</a>
+</form>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+
+.job-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+  padding: 100px 1rem 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.job-container {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+}
+
+.job-card {
+  background-color: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.job-title {
+  font-size: 2rem;
+  color: #0a2c53;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.job-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.edit-btn,
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: #0b5ed7;
+  color: #fff;
+}
+
+.submit-btn {
+  background-color: #0a2c53;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .job-container {
+    padding: 20px;
+  }
+
+  .job-page {
+    padding: 80px 1rem 80px;
+  }
+
+  .edit-btn,
+  .submit-btn {
+    width: 100%;
+  }
+
+  .job-actions {
+    flex-direction: column;
+  }
+}

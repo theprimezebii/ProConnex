@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Job | ProConnex</title>
+  <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/create-job.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <%- include('partials/header') %>
+
+  <!-- Main Content -->
+  <main class="job-page">
+    <div class="job-container">
+      <h1 class="job-title">Post a New Job</h1>
+      <form class="job-form" action="/create-job" method="POST">
+        
+        <div class="form-group">
+          <label for="title">Job Title</label>
+          <input type="text" id="title" name="title" placeholder="Enter job title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget (USD)</label>
+          <input type="number" id="budget" name="budget" placeholder="Enter budget" required>
+        </div>
+
+        <div class="form-group">
+          <label for="deadline">Deadline</label>
+          <input type="date" id="deadline" name="deadline" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Job Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Design">Design</option>
+            <option value="Writing">Writing</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Required Skills</label>
+          <input type="text" id="skills" name="skills" placeholder="e.g. HTML, CSS, JavaScript" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea id="description" name="description" rows="5" placeholder="Describe the job in detail..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Post Job</button>
+      </form>
+    </div>
+  </main>
+<script src="/js/main.js"></script>
+  <!-- Footer -->
+  <%- include('partials/footer') %>
+
+</body>
+</html>

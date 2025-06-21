@@ -1,0 +1,91 @@
+<!-- Lucide Icon CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="/css/header.css">
+<script src="/js/main.js"></script>
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="/" class="logo">
+        <i></i> ProConnex
+      </a>
+    </div>
+    <div class="nav-right">
+      <button id="hamburger" class="hamburger" aria-label="Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div id="sidebar" class="sidebar">
+    <ul id="sidebar-links">
+      <% if (user) { %>
+        <!-- ✅ Logged-in Navigation -->
+        <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+        <li><a href="/about"><i data-lucide="info"></i> About</a></li>
+        <li><a href="/services"><i data-lucide="settings"></i> Services</a></li>
+        <li><a href="/contact"><i data-lucide="mail"></i> Contact</a></li>
+        <li><a href="/dashboard"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+        <li><a href="/payments"><i data-lucide="credit-card"></i>Payments</a></li>
+
+        <!-- Jobs Dropdown -->
+        <li>
+          <button class="dropdown-toggle">
+            <i data-lucide="briefcase"></i> Jobs
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/create-job"><i data-lucide="plus-square"></i> Create Job</a></li>
+            <li><a href="/browse-jobs"><i data-lucide="search"></i> Browse Jobs</a></li>
+            <li><a href="/my-jobs"><i data-lucide="clipboard-list"></i> My Jobs</a></li>
+           
+          </ul>
+        </li>
+
+        <li><a href="/forum"><i data-lucide="message-circle"></i> Community Forum</a></li>
+        <li><a href="/training"><i data-lucide="graduation-cap"></i> Courses</a></li>
+
+        <!-- CV Dropdown -->
+        <li>
+          <button class="dropdown-toggle">
+            <i data-lucide="file-text"></i> CV Tools
+            <i data-lucide="chevron-down" class="chevron-icon"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="/generate-cv" class="disabled-link"><i data-lucide="file-plus"></i> Generate CV</a></li>
+            <li><a href="/preview-cv"  class="disabled-link"><i data-lucide="eye"></i> Preview CV</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <form action="/logout" method="POST">
+            <button class="logout-btn"><i data-lucide="log-out"></i> Logout</button>
+          </form>
+        </li>
+      <% } else { %>
+        <!-- 👤 Guest Navigation -->
+        <li><a href="/"><i data-lucide="home"></i> Home</a></li>
+        <li><a href="/about"><i data-lucide="info"></i> About</a></li>
+        <li><a href="/services"><i data-lucide="settings"></i> Services</a></li>
+        <li><a href="/contact"><i data-lucide="mail"></i> Contact</a></li>
+        <li><a href="/browse-jobs"><i data-lucide="briefcase"></i> Browse Jobs</a></li>
+        <li>
+          <button id="joinBtn" class="join-btn" type="button">
+            <i data-lucide="log-in"></i> Join Now
+          </button>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+
+  <div id="overlay" class="overlay"></div>
+</header>
+
+<script src="/js/main.js"></script>
+<script>
+  lucide.createIcons();
+
+  
+  
+</script>
+
+

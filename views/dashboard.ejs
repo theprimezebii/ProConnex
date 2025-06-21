@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProConnex | Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <%- include('partials/header', { user: user, currentPage: 'dashboard' }) %>
+
+  <div class="dashboard-container">
+    <main class="dashboard-main" data-aos="fade-up">
+      <h1>Welcome, <%= user?.name || 'User' %>!</h1>
+
+      <div class="profile-box" data-aos="fade-up">
+        <h2>Manage Profile</h2>
+        <form action="/upload-profile" method="POST" enctype="multipart/form-data">
+          <div class="profile-content">
+            <img src="/uploads/<%= user?.profilePic || 'default-profile.png' %>" alt="Profile Picture" class="profile-pic"/>
+            <div class="profile-fields">
+              <p><strong>Name:</strong> <%= user?.name %></p>
+              <p><strong>Email:</strong> <%= user?.email %></p>
+
+              <input type="file" id="profileInput" name="profilePic" accept="image/*" style="display: none;" required />
+
+              <button type="button" class="btn" id="uploadBtn">
+                <%= user?.profilePic ? 'Update Picture' : 'Upload Picture' %>
+              </button>
+
+              <button type="submit" class="btn" id="submitBtn" style="display: none;">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="dashboard-widgets">
+        <div class="widget-card" data-aos="zoom-in">
+          <h3>Total Jobs Posted</h3>
+          <p><%= totalJobs %></p>
+        </div>
+
+        <div class="widget-card" data-aos="zoom-in" data-aos-delay="100">
+          <h3>Active Applications</h3>
+          <p><%= activeApplications %></p>
+        </div>
+
+        <div class="widget-card" data-aos="zoom-in" data-aos-delay="200">
+          <h3>Total Earnings</h3>
+          <p>$<%= totalEarnings %></p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <%- include('partials/footer', { currentPage: 'dashboard' }) %>
+
+  <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    lucide.createIcons();
+
+    const uploadBtn = document.getElementById('uploadBtn');
+    const fileInput = document.getElementById('profileInput');
+    const submitBtn = document.getElementById('submitBtn');
+
+    uploadBtn.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        submitBtn.style.display = 'inline-block';
+        uploadBtn.textContent = 'Update Picture';
+      }
+    });
+  </script>
+</body>
+</html>

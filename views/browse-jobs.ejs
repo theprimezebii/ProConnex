@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Jobs | ProConnex</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/browse-jobs.css">
+
+</head>
+<body>
+  <!-- Header -->
+  <%- include('partials/header', { user: user }) %>
+  <%- include('partials/joinModal') %>
+
+  <!-- Main Content -->
+  <main class="job-page">
+    <div class="job-container">
+      <h1 class="job-title">Available Jobs</h1>
+      
+      <% if (jobs && jobs.length > 0) { %>
+        <% jobs.forEach(job => { %>
+          <div class="job-card">
+            <h3><%= job.title %></h3>
+            <p><strong>Budget:</strong> $<%= job.budget %></p>
+            <p><strong>Deadline:</strong> <%= job.deadline %></p>
+            <p><strong>Category:</strong> <%= job.category %></p>
+            <p><strong>Skills:</strong> <%= job.skills %></p>
+            <p><%= job.description %></p>
+
+            <div class="job-actions">
+              <% if (user) { %>
+                <!-- Always show View Details to logged-in users -->
+                <a href="/job-details/<%= job.id %>" class="edit-btn">View Details</a>
+
+                <% if (job.user_id !== user.id) { %>
+                  <!-- Show Apply only if job does not belong to the current user -->
+                  <a href="/apply-job/<%= job.id %>" class="submit-btn">Apply</a>
+                <% } else { %>
+                  <!-- Optional: Indicate it's their own job -->
+                  <span class="submit-btn" style="background-color: #ccc; cursor: default;">Your Job</span>
+                <% } %>
+              <% } else { %>
+                <!-- If not logged in, show login prompt -->
+                <button class="submit-btn" onclick="openJoinModal()">Login to Apply</button>
+              <% } %>
+            </div>
+
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No jobs available at the moment.</p>
+      <% } %>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+
+  <!-- Footer -->
+  <%- include('partials/footer', { user: user, currentPage: currentPage }) %>
+</body>
+</html>

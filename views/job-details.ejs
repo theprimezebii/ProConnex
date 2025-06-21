@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Jobs | ProConnex</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/job-details.css">
+  <title><%= job.title %> | Job Details</title>
+</head>
+<body>
+   <%- include('partials/header', { user: user }) %>
+  <main class="job-details-container" data-aos="fade-up">
+    <div class="job-details-wrapper">
+      <h2 class="job-title"><%= job.title %></h2>
+      <div class="job-meta">
+        <p><strong>Category:</strong> <%= job.category %></p>
+        <p><strong>Budget:</strong> $<%= job.budget %></p>
+        <p><strong>Deadline:</strong> <%= job.deadline %></p>
+        <p><strong>Skills Required:</strong> <%= job.skills %></p>
+      </div>
+
+      <div class="job-description">
+        <h3>Description</h3>
+        <p><%= job.description %></p>
+      </div>
+
+      <div class="job-action">
+        <% if (user) { %>
+          <a href="/apply/<%= job.id %>" class="btn btn-primary">Apply Now</a>
+        <% } else { %>
+          <button onclick="openJoinModal()" class="btn btn-primary">Sign In to Apply</button>
+        <% } %>
+      </div>
+    </div>
+  </main>
+ 
+</body>
+</html>

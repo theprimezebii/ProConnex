@@ -1,0 +1,42 @@
+<!-- views/partials/footer.ejs -->
+
+<link rel="stylesheet" href="/css/footer.css">
+<footer class="site-footer">
+  <% if (currentPage === 'home') { %>
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About ProConnex</h3>
+        <p>ProConnex connects freelancers and job posters in a secure and professional environment.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/terms">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><i data-lucide="facebook"></i></a>
+          <a href="https://twitter.com" target="_blank"><i data-lucide="twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i data-lucide="linkedin"></i></a>
+          <a href="https://github.com" target="_blank"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr />
+  <% } %>
+
+  <div class="footer-bottom">
+    <p>&copy; <%= new Date().getFullYear() %> ProConnex. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>

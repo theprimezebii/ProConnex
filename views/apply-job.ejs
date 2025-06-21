@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for Job</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/apply-job.css">
+
+</head>
+<body>
+  <%- include('partials/header', { user: user }) %>
+
+  <main class="job-page">
+    <div class="job-container">
+      <h1 class="job-title">Apply for: <%= job.title %></h1>
+      <p><strong>Budget:</strong> $<%= job.budget %></p>
+      <p><strong>Deadline:</strong> <%= job.deadline %></p>
+      <p><%= job.description %></p>
+
+      <form action="/apply-job/<%= job.id %>" method="POST" class="job-form">
+        <div class="form-group">
+          <label for="proposal">Your Proposal</label>
+          <textarea name="proposal" id="proposal" required placeholder="Write your proposal here..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Application</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <%- include('partials/footer', { user: user }) %>
+</body>
+</html>

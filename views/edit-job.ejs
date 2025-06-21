@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Job | ProConnex</title>
+  <link rel="stylesheet" href="/css/edit-job.css" />
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <main class="edit-job-page">
+    <div class="edit-job-container">
+      <h1>Edit Job</h1>
+
+      <form class="edit-job-form" action="/edit-job/<%= job.id %>" method="POST">
+        <div class="form-group">
+          <label for="title">Job Title</label>
+          <input type="text" id="title" name="title" value="<%= job.title %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget (USD)</label>
+          <input type="number" id="budget" name="budget" value="<%= job.budget %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="deadline">Deadline</label>
+          <input type="date" id="deadline" name="deadline" value="<%= job.deadline %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Job Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="Web Development" <%= job.category === 'Web Development' ? 'selected' : '' %>>Web Development</option>
+            <option value="Design" <%= job.category === 'Design' ? 'selected' : '' %>>Design</option>
+            <option value="Writing" <%= job.category === 'Writing' ? 'selected' : '' %>>Writing</option>
+            <option value="Marketing" <%= job.category === 'Marketing' ? 'selected' : '' %>>Marketing</option>
+            <option value="Other" <%= job.category === 'Other' ? 'selected' : '' %>>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="skills">Required Skills</label>
+          <input type="text" id="skills" name="skills" value="<%= job.skills %>" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Job Description</label>
+          <textarea id="description" name="description" rows="5" required><%= job.description %></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Update Job</button>
+      </form>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

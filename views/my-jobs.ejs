@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Jobs | ProConnex</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/myJobs.css"/>
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <main class="job-page">
+    <div class="job-container">
+      <h1 class="job-title">My Posted Jobs</h1>
+
+      <% if (myJobs && myJobs.length > 0) { %>
+        <% myJobs.forEach(job => { %>
+          <div class="job-card">
+            <h3><%= job.title %></h3>
+            <p><strong>Budget:</strong> $<%= job.budget %></p>
+            <p><strong>Deadline:</strong> <%= job.deadline %></p>
+            <p><strong>Category:</strong> <%= job.category %></p>
+            <p><strong>Skills:</strong> <%= job.skills %></p>
+            <p><%= job.description %></p>
+
+            <div class="job-actions">
+              <a href="/edit-job/<%= job.id %>" class="btn edit-btn">Edit</a>
+              <form action="/delete-job/<%= job.id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn delete-btn">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>You haven't posted any jobs yet.</p>
+      <% } %>
+
+    </div>
+  </main>
+
+   <script src="/js/main.js"></script>
+
+  <!-- Footer -->
+  <%- include('partials/footer', { user: user, currentPage: currentPage }) %>
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+}
+
+.edit-job-page {
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.edit-job-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.edit-job-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #0a1d37;
+  text-align: center;
+}
+
+.edit-job-form .form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #0056d2;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #003f9e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edit-job-container {
+    padding: 1rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+  }
+}

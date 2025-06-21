@@ -1,0 +1,72 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProConnex | Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Lucide Icon CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <%- include('partials/header', { user: user, currentPage: 'home' }) %>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-content">
+      <h1>Connect. Work. Succeed.</h1>
+      <p>Your one-stop platform for freelancers and employers to grow together.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section" data-aos="fade-up">
+    <h2>Platform Highlights</h2>
+    <div class="features-grid">
+      <div class="feature-card" data-aos="zoom-in">
+        <i data-lucide="search"></i>
+        <h3>Find Jobs</h3>
+        <p>Access a wide variety of job listings tailored to your skills.</p>
+      </div>
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+        <i data-lucide="users"></i>
+        <h3>Collaborate</h3>
+        <p>Connect with employers and professionals across industries.</p>
+      </div>
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+        <i data-lucide="shield-check"></i>
+        <h3>Secure Payments</h3>
+        <p>Payments handled safely and efficiently for both parties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ProConnex Section -->
+  <section class="why-us-section" data-aos="fade-up">
+    <h2>Why Choose ProConnex?</h2>
+    <ul class="why-list">
+      <li><i data-lucide="check-circle"></i> Transparent job system</li>
+      <li><i data-lucide="check-circle"></i> Real-time messaging</li>
+      <li><i data-lucide="check-circle"></i> Professional training & courses</li>
+    </ul>
+  </section>
+
+  <%- include('partials/footer', { currentPage: 'home' }) %>
+  <%- include('partials/joinModal') %>
+  <script src="/js/main.js"></script>
+
+  <!-- Scripts -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    lucide.createIcons();
+  </script>
+</body>
+</html>

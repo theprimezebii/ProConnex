@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProConnex Forum</title>
+  <link rel="stylesheet" href="/css/style.css"> 
+  <link rel="stylesheet" href="/css/forum.css"> 
+</head>
+<body>
+  <%- include('partials/header', { user: user, currentPage: 'forum' }) %>
+
+  <main class="forum-main">
+    <header class="forum-header">
+      <h1>ProConnex Forum</h1>
+      <p>Engage with the community, ask questions, and share insights.</p>
+    </header>
+
+    <section class="new-thread">
+      <h2>Create a New Thread</h2>
+      <form action="/forum/post" method="POST">
+        <input type="text" name="title" placeholder="Thread title" required>
+
+        <select name="category" required>
+          <option value="">Select Category</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Programming">Programming</option>
+          <option value="Business">Business</option>
+          <option value="Career">Career</option>
+        </select>
+
+        <textarea name="content" placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Post Thread</button>
+      </form>
+    </section>
+
+    <section class="thread-list">
+      <h2>Forum Threads</h2>
+
+      <% if (threads && threads.length > 0) { %>
+        <% threads.forEach(thread => { %>
+          <div class="thread">
+            <h3><%= thread.title %></h3>
+            <p>Posted by <strong><%= thread.user_name %></strong></p>
+            <p>Category: <%= thread.category %></p>
+            <p><%= thread.content %></p>
+            <p><%= new Date(thread.created_at).toLocaleString() %></p>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No threads yet. Be the first to post!</p>
+      <% } %>
+    </section>
+  </main>
+   <script src="/js/main.js"></script>
+  <%- include('partials/footer', { currentPage: 'forum' }) %>
+</body>
+</html>

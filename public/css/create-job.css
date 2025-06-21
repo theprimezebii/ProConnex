@@ -1,0 +1,100 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.job-page {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.job-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+.job-title {
+  font-size: 1.8rem;
+  color: #004080;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #004080;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #004080;
+}
+
+.submit-btn {
+  padding: 0.9rem 1.5rem;
+  background-color:#004080;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e67e22;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .job-container {
+    padding: 1.5rem;
+  }
+
+  .job-title {
+    font-size: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    font-size: 0.95rem;
+  }
+}

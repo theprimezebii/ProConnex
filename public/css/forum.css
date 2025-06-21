@@ -1,0 +1,112 @@
+* Header Title */
+main > header, .new-thread h2, .thread-list h2 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 1.5rem;
+}
+
+
+/* New Thread Form */
+.new-thread {
+  min-width: 1100px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.new-thread form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.new-thread input[type="text"],
+.new-thread select,
+.new-thread textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.new-thread textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.new-thread button {
+  background-color: #004080;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-thread button:hover {
+  background-color: #002b5c;
+}
+
+/* Thread List */
+.thread-list {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.thread {
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #004080;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thread:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+}
+
+.thread h3 {
+  margin: 0;
+  color: #004080;
+  font-size: 1.25rem;
+}
+
+.thread p {
+  margin: 0.25rem 0;
+  color: #333;
+}
+
+.thread strong {
+  color: #000;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  main {
+    padding: 0 0.5rem;
+  }
+
+  .new-thread, .thread-list {
+    padding: 1rem;
+    min-width: auto;
+  }
+
+  .thread h3 {
+    font-size: 1.1rem;
+  }
+
+  .new-thread button {
+    font-size: 0.95rem;
+  }
+}

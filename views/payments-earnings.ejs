@@ -1,0 +1,59 @@
+<!-- views/payments.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <%- include('partials/header') %>
+  <title>Payments & Earnings | ProConnex</title>
+</head>
+<body>
+  <main class="payments-container" data-aos="fade-up">
+    <h2 class="page-title">Payments & Earnings</h2>
+
+    <% if (userType === 'freelancer') { %>
+      <section class="payments-summary">
+        <h3>Total Earnings: $<%= totalEarnings %></h3>
+        <a href="/withdraw" class="btn btn-primary">Withdraw Funds</a>
+      </section>
+    <% } else if (userType === 'client') { %>
+      <section class="payments-summary">
+        <h3>Total Spent: $<%= totalSpent %></h3>
+        <a href="/top-up" class="btn btn-primary">Add Funds</a>
+      </section>
+    <% } %>
+
+    <section class="transactions">
+      <h3>Transaction History</h3>
+
+      <% if (transactions && transactions.length > 0) { %>
+        <div class="transaction-table-wrapper">
+          <table class="transaction-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Amount (USD)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% transactions.forEach(tx => { %>
+                <tr>
+                  <td><%= tx.date %></td>
+                  <td><%= tx.type %></td>
+                  <td>$<%= tx.amount %></td>
+                  <td class="status <%= tx.status.toLowerCase() %>"><%= tx.status %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } else { %>
+        <p class="no-transactions-msg">No transactions yet.</p>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
