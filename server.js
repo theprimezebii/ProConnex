@@ -86,6 +86,14 @@ db.run(`
 )
   `);
   
+  db.run(`CREATE TABLE IF NOT EXISTS contacts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  email TEXT,
+  subject TEXT,
+  message TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)`);
 });
 
 // File upload (profile image)
@@ -228,13 +236,12 @@ app.get('/payments', verifyToken, (req, res) => {
   res.render('payments-earnings', { user: req.session.user, currentPage: 'payments' });
 });
 
-app.get('/contact', (req, res) => {
-  res.render('contact', { user: req.session.user, currentPage: 'contact' });
-});
+
 
 app.get('/about', (req, res) => {
   res.render('about', { user: req.session.user, currentPage: 'about' });
 });
+
 
 app.get('/my-jobs', verifyToken, (req, res) => {
   const userId = req.session.user.id;
@@ -442,6 +449,36 @@ app.post('/forum/post', verifyToken, (req, res) => {
       res.redirect('/forum');
     }
   );
+});
+
+app.get('/contact', (req, res) => {
+  res.render('contact', { user: req.session.user, currentPage: 'contact' });
+});
+
+// Route: Handle Contact Form (POST)
+app.post('/contact', (req, res) => {
+  const { name, email, subject, message } = req.body;
+
+  const query = `INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)`;
+  db.run(query, [name, email, subject, message], function (err) {
+    if (err) {
+      console.error('Failed to save contact form:', err.message);
+      return res.status(500).send('Something went wrong. Please try again.');
+    }
+    console.log('Contact form submitted:', name);
+    res.redirect('/contact'); // You can add a success message here if you want
+  });
+});
+
+app.get('/services', (req, res) => {
+  res.render('services', { user: req.session.user || null });
+});
+
+
+
+// 404 fallback
+app.use((req, res) => {
+  res.status(404).send('404 - Page not found');
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

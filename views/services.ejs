@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/header') %>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/services.css">
+  <title>Our Services | ProConnex</title>
+</head>
+<body>
+  <main class="services-page">
+
+    <!-- Hero Section -->
+   <section class="hero-section">
+  <div class="hero-text">
+    <h1>Build, Grow, and Succeed</h1>
+    <p>ProConnex brings freelancers and job posters together with the best tools, resources, and community vibes.</p>
+    <% if (!user) { %>
+    <a href="#" class="hero-btn" onclick="event.preventDefault(); openJoinModal()">Get Started</a>
+    <% } %>
+  </div>
+</section>
+
+    <!-- Service Cards -->
+    <section class="services-grid">
+      <div class="service-card">
+        <i data-lucide="briefcase" class="icon"></i>
+        <h3>Job Listings</h3>
+        <p>Find jobs that match your skills or post one to connect with top freelancers.</p>
+      </div>
+      <div class="service-card">
+        <i data-lucide="users" class="icon"></i>
+        <h3>Community Forum</h3>
+        <p>Engage with other professionals, get help, share experiences, and grow together.</p>
+      </div>
+      <div class="service-card">
+        <i data-lucide="graduation-cap" class="icon"></i>
+        <h3>Learning Hub</h3>
+        <p>Access free and paid courses to sharpen your freelance and tech skills.</p>
+      </div>
+      <div class="service-card">
+        <i data-lucide="wallet" class="icon"></i>
+        <h3>Payments & Earnings</h3>
+        <p>Track your income, manage withdrawals, and view detailed earning reports.</p>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <h2>Why Choose ProConnex?</h2>
+      <ul>
+        <li>✔️ Fast and secure payments</li>
+        <li>✔️ Mobile-friendly dashboard</li>
+        <li>✔️ Real-time messaging and notifications</li>
+        <li>✔️ Curated jobs and quality freelancers only</li>
+      </ul>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow-section">
+      <h2>How It Works</h2>
+      <div class="workflow-steps">
+        <div class="step">
+          <span>1</span>
+          <h4>Sign Up</h4>
+          <p>Create a free account as a freelancer or job poster.</p>
+        </div>
+        <div class="step">
+          <span>2</span>
+          <h4>Connect</h4>
+          <p>Browse jobs or talent and start messaging instantly.</p>
+        </div>
+        <div class="step">
+          <span>3</span>
+          <h4>Collaborate</h4>
+          <p>Work together through our built-in tools and secure dashboard.</p>
+        </div>
+        <div class="step">
+          <span>4</span>
+          <h4>Get Paid</h4>
+          <p>Payments are fast, secure, and fully trackable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+      <h2>What People Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial">
+          <p>"ProConnex helped me land my first remote gig. It's simple, clean, and super helpful."</p>
+          <h5>- Areeba K.</h5>
+        </div>
+        <div class="testimonial">
+          <p>"As a job poster, I found amazing talent in no time. Definitely a game-changer."</p>
+          <h5>- Bilal H.</h5>
+        </div>
+        <div class="testimonial">
+          <p>"I love the community vibes here. It's more than just jobs – it's support and growth."</p>
+          <h5>- Muneeb R.</h5>
+        </div>
+      </div>
+    </section>
+
+  <section class="cta-section">
+  <h2>Ready to Join ProConnex?</h2>
+  <p>Create your profile, post your first job, or start bidding — it’s 100% free to get started.</p>
+</section>
+
+  </main>
+
+  <script src="/js/main.js"></script>
+   <%- include('partials/joinModal') %>
+ <%- include('partials/footer', { currentPage: 'services' }) %>
+</body>
+</html>

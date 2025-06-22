@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // For external use (HTML onclick)
 function openJoinModal() {
+  
   const joinModal = document.getElementById("joinModal");
   if (joinModal) {
     joinModal.classList.add("active");
@@ -141,3 +142,5 @@ function switchModalTab(tab) {
     signUpTab.classList.add('active');
   }
 }
+
+event.preventDefault();

@@ -19,3 +19,9 @@ header {
   z-index: 1000;
 }
 
+.disabled-link {
+  pointer-events: none;   /* disables click */
+  opacity: 0.5;           /* makes it look inactive */
+  cursor: not-allowed;
+  text-decoration: none;
+}
