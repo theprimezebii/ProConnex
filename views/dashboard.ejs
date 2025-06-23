@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ProConnex | Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/dashboard.css">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,7 +20,17 @@
         <h2>Manage Profile</h2>
         <form action="/upload-profile" method="POST" enctype="multipart/form-data">
           <div class="profile-content">
-            <img src="/uploads/<%= user?.profilePic || 'default-profile.png' %>" alt="Profile Picture" class="profile-pic"/>
+            <div class="profile-pic-box">
+              <% if (user?.profilePic) { %>
+                <img src="/uploads/<%= user.profilePic %>" alt="Profile Picture" class="profile-pic" />
+              <% } else { %>
+              <div class="profile-pic placeholder">
+                    <span>Profile</span> <br>
+                    <span>Picture</span>
+              </div>
+              <% } %>
+            </div>
+
             <div class="profile-fields">
               <p><strong>Name:</strong> <%= user?.name %></p>
               <p><strong>Email:</strong> <%= user?.email %></p>
