@@ -28,7 +28,7 @@
 
 ---
 
-##🧠 Author
+## 🧠 Author
 👤 Name: Zohaib Madni
 💼 Role: Full Stack Developer & Python Automation Enthusiast
 📍 Location: Rawalpindi, Pakistan
