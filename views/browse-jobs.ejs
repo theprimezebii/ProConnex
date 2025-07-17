@@ -4,59 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Browse Jobs | ProConnex</title>
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/browse-jobs.css">
 
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <!-- Header -->
   <%- include('partials/header', { user: user }) %>
   <%- include('partials/joinModal') %>
 
-  <!-- Main Content -->
-  <main class="job-page">
-    <div class="job-container">
-      <h1 class="job-title">Available Jobs</h1>
-      
+  <main class="browse-jobs-page" data-aos="fade-up">
+    <div class="browse-header">
+      <h1>Explore Freelance Jobs</h1>
+      <p>Browse opportunities that match your skills and interests</p>
+    </div>
+
+    <!-- Dynamically add class for 2-column layout if jobs > 1 -->
+   <div class="job-listings-grid full-width <%= jobs.length > 1 ? 'two-or-more' : '' %>">
       <% if (jobs && jobs.length > 0) { %>
         <% jobs.forEach(job => { %>
-          <div class="job-card">
-            <h3><%= job.title %></h3>
-            <p><strong>Budget:</strong> $<%= job.budget %></p>
-            <p><strong>Deadline:</strong> <%= job.deadline %></p>
-            <p><strong>Category:</strong> <%= job.category %></p>
-            <p><strong>Skills:</strong> <%= job.skills %></p>
-            <p><%= job.description %></p>
+          <div class="job-card" data-aos="fade-up">
+            <div class="job-content">
+              <h2><%= job.title %></h2>
+              <p><%= job.description.length > 160 ? job.description.substring(0, 160) + '...' : job.description %></p>
 
-            <div class="job-actions">
-              <% if (user) { %>
-                <!-- Always show View Details to logged-in users -->
-                <a href="/job-details/<%= job.id %>" class="edit-btn">View Details</a>
-
-                <% if (job.user_id !== user.id) { %>
-                  <!-- Show Apply only if job does not belong to the current user -->
-                  <a href="/apply-job/<%= job.id %>" class="submit-btn">Apply</a>
-                <% } else { %>
-                  <!-- Optional: Indicate it's their own job -->
-                  <span class="submit-btn" style="background-color: #ccc; cursor: default;">Your Job</span>
-                <% } %>
-              <% } else { %>
-                <!-- If not logged in, show login prompt -->
-                <button class="submit-btn" onclick="openJoinModal()">Login to Apply</button>
-              <% } %>
+              <ul class="job-meta">
+                <li><strong>Budget:</strong> $<%= job.budget %></li>
+                <li><strong>Deadline:</strong> <%= job.deadline %></li>
+                <li><strong>Category:</strong> <%= job.category %></li>
+                <li><strong>Skills:</strong> <%= job.skills %></li>
+              </ul>
             </div>
 
+            <div class="job-actions">
+              <a href="/job-details/<%= job.id %>" class="btn btn-outline">View Details</a>
+
+              <% if (user) { %>
+                <% if (job.user_id !== user.id) { %>
+                  <a href="/apply-job/<%= job.id %>" class="btn btn-primary">Apply</a>
+                <% } else { %>
+                  <span class="btn btn-disabled">Your Job</span>
+                <% } %>
+              <% } else { %>
+                <button onclick="openJoinModal()" class="btn btn-primary">Login to Apply</button>
+              <% } %>
+            </div>
           </div>
         <% }) %>
       <% } else { %>
-        <p>No jobs available at the moment.</p>
+        <p class="no-jobs">No jobs available at the moment. Check back soon!</p>
       <% } %>
     </div>
   </main>
 
-  <script src="/js/main.js"></script>
-
-  <!-- Footer -->
   <%- include('partials/footer', { user: user, currentPage: currentPage }) %>
+
+  <script src="/js/main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>

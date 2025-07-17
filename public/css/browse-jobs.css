@@ -1,82 +1,170 @@
-
-.job-page {
-  min-height: 100vh;
-  background: #f5f7fa;
-  padding: 100px 1rem 60px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+/* Container Setup */
+.browse-jobs-page {
+  padding: 4rem 2rem;
+  max-width: 1300px;
+  margin: auto;
+  background: #f9fafb;
 }
 
-.job-container {
-  width: 100%;
-  max-width: 800px;
-  background: #fff;
-  padding: 30px;
+/* Page Title */
+.browse-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.browse-header h1 {
+  font-size: 2.5rem;
+  color: #1e2a38;
+}
+
+.browse-header p {
+  font-size: 1.1rem;
+  color: #606c76;
+}
+
+/* Responsive Grid Layout */
+.job-listings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 700px) {
+  .job-listings-grid.two-or-more {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Job Card Styles */
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Job Content Text */
+.job-content h2 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-bottom: 0.8rem;
+}
+
+.job-content p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 0.6rem;
+}
+
+/* Meta List */
+.job-meta {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.job-meta li {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.4rem;
+}
+
+/* Actions Buttons */
+.job-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #1e40af;
+  border: 2px solid #1e40af;
+}
+
+.btn-outline:hover {
+  background: #1e40af;
+  color: white;
+}
+
+.btn-disabled {
+  background: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+  pointer-events: none;
+  border: none;
+}
+
+/* No Jobs Message */
+.no-jobs {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+}
+.browse-jobs-page {
+  padding: 3rem 2rem;
+  width: 100%;
+  background: #f9fafb;
+}
+
+.job-listings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.job-listings-grid.full-width {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* For 2-column layout on wider screens */
+@media (min-width: 768px) {
+  .job-listings-grid.two-or-more {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .job-card {
-  background-color: #fefefe;
-  border: 1px solid #ddd;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.job-title {
-  font-size: 2rem;
-  color: #0a2c53;
-  text-align: center;
-  margin-bottom: 25px;
-  font-weight: 600;
-}
-
-.job-actions {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.edit-btn,
-.submit-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-}
-
-.edit-btn {
-  background-color: #0b5ed7;
-  color: #fff;
-}
-
-.submit-btn {
-  background-color: #0a2c53;
-  color: #fff;
-}
-
-@media (max-width: 768px) {
-  .job-container {
-    padding: 20px;
-  }
-
-  .job-page {
-    padding: 80px 1rem 80px;
-  }
-
-  .edit-btn,
-  .submit-btn {
-    width: 100%;
-  }
-
-  .job-actions {
-    flex-direction: column;
-  }
+  padding: 1.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+  width: 100%;
 }

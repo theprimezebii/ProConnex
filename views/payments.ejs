@@ -1,29 +1,37 @@
-<!-- views/payments.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <%- include('partials/header') %>
   <title>Payments & Earnings | ProConnex</title>
+  <link rel="stylesheet" href="/css/payments.css">
 </head>
 <body>
   <main class="payments-container" data-aos="fade-up">
-    <h2 class="page-title">Payments & Earnings</h2>
+    <section class="page-header">
+      <h2 class="page-title">💰 Payments & Earnings</h2>
+      <p class="page-subtitle">Track your financial activity on ProConnex.</p>
+    </section>
 
     <% if (userType === 'freelancer') { %>
-      <section class="payments-summary">
-        <h3>Total Earnings: $<%= totalEarnings %></h3>
-        <a href="/withdraw" class="btn btn-primary">Withdraw Funds</a>
+      <section class="payments-summary freelancer">
+        <div class="summary-card">
+          <h3>Total Earnings</h3>
+          <p class="amount">$<%= totalEarnings %></p>
+          <a href="/withdraw" class="btn btn-primary">Withdraw Funds</a>
+        </div>
       </section>
     <% } else if (userType === 'client') { %>
-      <section class="payments-summary">
-        <h3>Total Spent: $<%= totalSpent %></h3>
-        <a href="/top-up" class="btn btn-primary">Add Funds</a>
+      <section class="payments-summary client">
+        <div class="summary-card">
+          <h3>Total Spent</h3>
+          <p class="amount">$<%= totalSpent %></p>
+          <a href="/top-up" class="btn btn-primary">Add Funds</a>
+        </div>
       </section>
     <% } %>
 
     <section class="transactions">
-      <h3>Transaction History</h3>
+      <h3 class="section-title">🧾 Transaction History</h3>
 
       <% if (transactions && transactions.length > 0) { %>
         <div class="transaction-table-wrapper">
@@ -49,11 +57,15 @@
           </table>
         </div>
       <% } else { %>
-        <p class="no-transactions-msg">No transactions yet.</p>
+        <p class="no-transactions-msg">🚫 No transactions found.</p>
       <% } %>
     </section>
   </main>
 
-  <%- include('partials/footer') %>
+  <%- include('partials/footer', { currentPage: 'payments' }) %>
+  <script src="/js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

@@ -1,74 +1,106 @@
-.job-page {
-  padding: 100px 1rem 60px;
-  min-height: 100vh;
-  background-color: #f7f9fc;
-  display: flex;
-  justify-content: center;
-}
-
-.job-container {
+.apply-job-container {
   width: 100%;
-  max-width: 800px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem 5%;
+  background-color: #ffffff;
+  color: #2c3e50;
+  line-height: 1.6;
 }
 
 .job-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #0a2c53;
-  text-align: center;
+  font-size: 2.2rem;
+  color: #0a3d62;
+  margin-bottom: 0.5rem;
 }
 
-.job-container p {
-  margin-bottom: 15px;
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   font-size: 1rem;
-  color: #333;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
-.job-form {
-  margin-top: 20px;
+.job-description {
+  background-color: #f8f9fa;
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
-.form-group {
-  margin-bottom: 20px;
+.job-description h3 {
+  margin-bottom: 0.75rem;
+  color: #34495e;
 }
 
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
+.job-guidelines ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
 }
 
-textarea {
+.job-guidelines li {
+  background: #ecf0f1;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.proposal-form-section {
+  margin-bottom: 2rem;
+  background-color: #f7f9fc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.proposal-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.proposal-form textarea {
   width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+  height: 180px;
+  padding: 1rem;
   border-radius: 8px;
+  border: 1px solid #ccc;
   resize: vertical;
+  font-size: 1rem;
 }
 
 .submit-btn {
-  padding: 10px 20px;
-  background-color: #0a2c53;
+  background-color: #0a3d62;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  padding: 0.75rem 1.8rem;
   font-size: 1rem;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .submit-btn:hover {
-  background-color: #07325c;
+  background-color: #084273;
 }
 
+.tips-section {
+  background-color: #f1f2f6;
+  padding: 1.2rem 1.5rem;
+  border-left: 6px solid #0a3d62;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+/* Mobile View */
 @media (max-width: 768px) {
-  .job-container {
-    padding: 20px;
+  .apply-job-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .job-title {
+    font-size: 1.6rem;
   }
 
   .submit-btn {

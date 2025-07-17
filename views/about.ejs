@@ -5,18 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | ProConnex</title>
-
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/about.css">
-
-  <!-- Lucide Icon CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
   <%- include('partials/header', { user: user, currentPage: 'about' }) %>
-  <main class="about-container" data-aos="fade-up">
-    <section class="about-hero">
+  <main class="about-container">
+    <section class="about-hero" data-aos="fade-up">
       <h2 class="page-title">About ProConnex</h2>
       <p class="hero-description">
         ProConnex is a cutting-edge freelancing and job connection platform designed to empower both clients and freelancers through professional, reliable, and skill-focused collaboration.
@@ -33,27 +31,61 @@
     <section class="about-features" data-aos="fade-up">
       <h3>Why Choose ProConnex?</h3>
       <ul class="features-list">
-        <li>✅ Clean and intuitive user experience</li>
-        <li>✅ Verified clients and freelancers</li>
-        <li>✅ Secure payments and earnings dashboard</li>
-        <li>✅ Built-in community forum for networking</li>
-        <li>✅ Free access to training & skill courses</li>
+        <li>Clean and intuitive user experience</li>
+        <li>Verified clients and freelancers</li>
+        <li>Secure payments and earnings dashboard</li>
+        <li>Built-in community forum for networking</li>
+        <li>Free access to training & skill courses</li>
       </ul>
     </section>
 
-    <!-- <section class="about-team" data-aos="fade-up">
+    <section class="about-history" data-aos="fade-up">
+      <h3>Company Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">2023</span>
+          <p>ProConnex idea was born to solve the rising need for trusted freelancer platforms.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2024</span>
+          <p>Initial MVP launched, connecting first 1,000 users across 3 countries.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2025</span>
+          <p>Official platform release with secure payments, training modules, and more.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-team" data-aos="fade-up">
       <h3>Our Team</h3>
       <div class="team-grid">
         <div class="team-member">
           <img src="/images/founder1.jpg" alt="Founder" />
           <h4>Zohaib Madni</h4>
           <p>Founder & Lead Developer</p>
-        </div> -->
-        <!-- Add more team members as needed -->
-      <!-- </div>
-    </section> -->
+          <div class="social-links">
+            <a href="https://linkedin.com/in/zohaibmadni" target="_blank"><i data-lucide="linkedin"></i></a>
+            <a href="https://twitter.com/zohaibmadni" target="_blank"><i data-lucide="twitter"></i></a>
+          </div>
+        </div>
+        <!-- Add more members similarly -->
+      </div>
+    </section>
+
+    <section class="join-team-cta" data-aos="zoom-in">
+      <h3>Want to Join Our Team?</h3>
+      <p>We're always looking for passionate developers, designers, and community managers to help grow ProConnex.</p>
+      <a href="/contact" class="btn btn-primary">Contact Us</a>
+    </section>
   </main>
-<script src="/js/main.js"></script>
+
   <%- include('partials/footer') %>
+  <script src="/js/main.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+    lucide.createIcons();
+  </script>
 </body>
 </html>

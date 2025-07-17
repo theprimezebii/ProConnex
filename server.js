@@ -65,15 +65,6 @@ db.serialize(() => {
       UNIQUE(job_id, user_id)
     )
   `);
-  db.run(`
-  CREATE TABLE IF NOT EXISTS nearnings (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER NOT NULL,
-  amount REAL NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY(user_id) REFERENCES users(id)
-  )
-`);
 db.run(`
   CREATE TABLE IF NOT EXISTS forum_threads (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -128,6 +119,47 @@ function verifyToken(req, res, next) {
     return res.redirect('/');
   }
 }
+
+app.get('/payments', verifyToken, (req, res) => {
+  const user = req.session.user;
+  const userId = user.id;
+  const userType = user.role || 'freelancer'; // Default fallback
+
+  // Get total earnings (reusing dashboard logic)
+  db.get(`SELECT SUM(amount) AS total FROM earnings WHERE user_id = ?`, [userId], (err1, earningsRow) => {
+    if (err1) {
+      console.error("Error fetching earnings:", err1);
+      return res.render('payments', {
+        user,
+        userType,
+        totalEarnings: 0,
+        totalSpent: 0,
+        transactions: []
+      });
+    }
+
+    db.all(`SELECT * FROM payments WHERE user_id = ? ORDER BY date DESC`, [userId], (err2, transactions) => {
+      if (err2) {
+        console.error("Error fetching transactions:", err2);
+        return res.render('payments', {
+          user,
+          userType,
+          totalEarnings: earningsRow?.total || 0,
+          totalSpent: 0,
+          transactions: []
+        });
+      }
+
+      res.render('payments', {
+        user,
+        userType,
+        totalEarnings: earningsRow?.total || 0,
+        totalSpent: 0, // Can change if you want to calculate client spending
+        transactions
+      });
+    });
+  });
+});
 
 // Auth Middleware
 function isAuthenticated(req, res, next) {

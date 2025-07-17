@@ -1,107 +1,141 @@
 .about-container {
-  padding: 100px 1rem 60px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
-  background-color: #f9fbfd;
+  padding: 2rem 1rem;
 }
 
 .page-title {
-  text-align: center;
   font-size: 2.5rem;
-  color: #0a2c53;
+  color: #0a3d62;
+  text-align: center;
   margin-bottom: 1rem;
 }
 
-.hero-description {
-  text-align: center;
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  color: #444;
+.about-hero, .about-mission, .about-features, .about-team, .about-history, .join-team-cta {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
 }
 
-.about-mission,
-.about-features,
-.about-team {
-  margin-top: 2.5rem;
+.hero-description {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #444;
 }
 
 .about-mission h3,
 .about-features h3,
-.about-team h3 {
-  font-size: 1.75rem;
-  color: #0a2c53;
-  margin-bottom: 1rem;
-}
-
-.about-mission p,
-.about-features p {
-  font-size: 1rem;
+.about-team h3,
+.about-history h3,
+.join-team-cta h3 {
+  font-size: 1.6rem;
   color: #333;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .features-list {
   list-style: none;
-  padding-left: 1.2rem;
+  padding: 0;
+  margin: 1rem 0 0;
 }
 
 .features-list li {
+  margin: 0.5rem 0;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  color: #2c3e50;
   position: relative;
   padding-left: 1.5rem;
-  color: #333;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid #3498db;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -0.6rem;
+  top: 0.3rem;
+  background: #3498db;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #2980b9;
+  margin-bottom: 0.2rem;
 }
 
 .team-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
-  margin-top: 1rem;
 }
 
 .team-member {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
   text-align: center;
-  width: 250px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  max-width: 200px;
 }
 
 .team-member img {
   width: 100%;
-  max-width: 120px;
   border-radius: 50%;
-  margin-bottom: 0.75rem;
+  object-fit: cover;
+  border: 3px solid #0a3d62;
 }
 
-.team-member h4 {
+.social-links {
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  margin: 0 0.3rem;
+  color: #0a3d62;
   font-size: 1.2rem;
-  color: #0a2c53;
-  margin-bottom: 0.2rem;
 }
 
-.team-member p {
-  font-size: 0.95rem;
+.join-team-cta {
+  background-color: #f6f8fa;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+}
+
+.join-team-cta p {
+  margin: 0.5rem 0 1rem;
   color: #555;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
-  }
+.join-team-cta .btn-primary {
+  background: #0a3d62;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
 
+.join-team-cta .btn-primary:hover {
+  background: #084273;
+}
+
+@media (max-width: 768px) {
   .team-grid {
     flex-direction: column;
     align-items: center;
-  }
-
-  .about-container {
-    padding: 80px 1rem 60px;
   }
 }

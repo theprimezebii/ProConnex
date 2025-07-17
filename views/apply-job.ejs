@@ -1,32 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apply for Job</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Job | ProConnex</title>
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/apply-job.css">
-
 </head>
 <body>
   <%- include('partials/header', { user: user }) %>
 
-  <main class="job-page">
-    <div class="job-container">
+  <main class="apply-job-container" data-aos="fade-up">
+    <section class="job-details">
       <h1 class="job-title">Apply for: <%= job.title %></h1>
-      <p><strong>Budget:</strong> $<%= job.budget %></p>
-      <p><strong>Deadline:</strong> <%= job.deadline %></p>
-      <p><%= job.description %></p>
+      <div class="meta">
+        <p><strong>Budget:</strong> $<%= job.budget %></p>
+        <p><strong>Deadline:</strong> <%= job.deadline %></p>
+      </div>
+      <div class="job-description">
+        <h3>Job Description</h3>
+        <p><%= job.description %></p>
+      </div>
+    </section>
 
-      <form action="/apply-job/<%= job.id %>" method="POST" class="job-form">
+    <section class="job-guidelines">
+      <h3>Proposal Guidelines</h3>
+      <ul>
+        <li>✅ Be clear about your experience and how it matches the job.</li>
+        <li>✅ Mention any similar work or portfolio samples.</li>
+        <li>✅ Provide a clear timeline for how you'll deliver.</li>
+        <li>✅ Keep it concise and professional.</li>
+      </ul>
+    </section>
+
+    <section class="proposal-form-section">
+      <h3>Submit Your Proposal</h3>
+      <form action="/apply-job/<%= job.id %>" method="POST" class="proposal-form">
         <div class="form-group">
           <label for="proposal">Your Proposal</label>
-          <textarea name="proposal" id="proposal" required placeholder="Write your proposal here..."></textarea>
+          <textarea name="proposal" id="proposal" required placeholder="Write a strong, professional proposal..."></textarea>
         </div>
         <button type="submit" class="submit-btn">Submit Application</button>
       </form>
-    </div>
+    </section>
+
+    <section class="tips-section">
+      <h3>Application Tips</h3>
+      <p>
+        💡 Tailor your proposal to the specific job. Avoid copy-paste content.<br>
+        💡 Make sure your grammar is correct and use proper formatting.<br>
+        💡 Be honest about your availability and budget needs.
+      </p>
+    </section>
   </main>
 
   <script src="/js/main.js"></script>
