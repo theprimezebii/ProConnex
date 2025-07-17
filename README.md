@@ -29,11 +29,11 @@
 ---
 
 ## 🧠 Author
-👤 Name: Zohaib Madni
-💼 Role: Full Stack Developer & Python Automation Enthusiast
-📍 Location: Rawalpindi, Pakistan
-🔗 GitHub: @theprimezebii
-📧 Email: theprimezebii@gmail.com
+- 👤 Name: Zohaib Madni
+- 💼 Role: Full Stack Developer & Python Automation Enthusiast
+- 📍 Location: Rawalpindi, Pakistan
+- 🔗 GitHub: @theprimezebii
+- 📧 Email: theprimezebii@gmail.com
 
 
 ## 📂 Folder Structure
