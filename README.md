@@ -39,7 +39,12 @@ ProConnex/
 ├── package.json         # Dependencies
 └── README.md            # You're here 👀
 
-Zohaib Madni
-🧑‍💻 Full Stack Developer & Python Automation Enthusiast
-📍 Rawalpindi, Pakistan
-🔗 GitHub: @theprimezebii
+
+## 🧠 Author   ← 🟩 Add this near the bottom
+Zohaib Madni  
+🧑‍💻 Full Stack Developer & Python Automation Enthusiast  
+📍 Rawalpindi, Pakistan  
+🔗 GitHub: [@theprimezebii](https://github.com/theprimezebii)
+
+## 📄 License   ← 🟩 Add this last
+This project is open-source. Feel free to fork, use, and improve.
